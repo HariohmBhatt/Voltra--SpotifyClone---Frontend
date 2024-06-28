@@ -14,18 +14,22 @@ class CustomField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hinttext,
+    return SizedBox(
+      height: 65,
+      width: 395,
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: hinttext,
+        ),
+        validator: (value) {
+          if (value == null || value.trim().isEmpty) {
+            return '$hinttext is missing';
+          }
+          return null;
+        },
+        obscureText: makeObscureText,
       ),
-      validator: (value) {
-        if (value == null || value.trim().isEmpty) {
-          return '$hinttext is missing';
-        }
-        return null;
-      },
-      obscureText: makeObscureText,
     );
   }
 }
