@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:client/core/constants/server_constants.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/auth/model/user_model.dart';
+import 'package:client/core/models/user_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -59,12 +59,12 @@ class AuthRemoteRepository {
         }),
       );
       final resBodyMap = jsonDecode(response.body) as Map<String, dynamic>;
-
       if (response.statusCode != 200) {
-        return Left(AppFailure(resBodyMap['detail'] ?? 'Unkown Error Occured'));
+        return Left(
+            AppFailure(resBodyMap['detail'] ?? 'Unknown Error Occurred'));
       }
-      return Right(UserModel.fromMap(resBodyMap['user'])
-          .copyWith(token: resBodyMap['token']));
+      final user = UserModel.fromMap(resBodyMap['user']);
+      return Right(user.copyWith(token: resBodyMap['token']));
     } catch (e) {
       return Left(
         AppFailure(
@@ -84,7 +84,6 @@ class AuthRemoteRepository {
         },
       );
       final resBodyMap = jsonDecode(response.body) as Map<String, dynamic>;
-
       if (response.statusCode != 200) {
         return Left(AppFailure(resBodyMap['detail'] ?? 'Unkown Error Occured'));
       }
