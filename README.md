@@ -1,6 +1,6 @@
-# client
+# Voltra - Spotify Clone - Frontend
 
-A new Flutter project.
+A flutter project which aims to create a clone of the Spotify music playing app. 
 
 ## Getting Started
 
