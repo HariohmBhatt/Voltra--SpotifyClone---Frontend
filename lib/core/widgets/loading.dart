@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// The `Loader` class is a stateless widget that displays a centered CircularProgressIndicator in a
+/// Flutter application.
 class Loader extends StatelessWidget {
   const Loader({super.key});
 

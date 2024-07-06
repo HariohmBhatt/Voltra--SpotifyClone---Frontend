@@ -1,6 +1,8 @@
 import 'package:client/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
+/// The `AppTheme` class defines a dark theme mode for a Flutter application with specific border styles
+/// and color schemes.
 class AppTheme {
   static OutlineInputBorder _border(Color color) => OutlineInputBorder(
         borderSide: BorderSide(color: color, width: 3.0),

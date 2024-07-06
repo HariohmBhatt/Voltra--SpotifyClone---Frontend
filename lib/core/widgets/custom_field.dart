@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // custom Textform field for all the auth pages and sign up pages
 
+/// The `CustomField` class is a stateless widget in Dart that creates a customizable text form field
+/// with features like hint text, controller, obscure text, read-only mode, and onTap callback.
 class CustomField extends StatelessWidget {
   const CustomField({
     super.key,

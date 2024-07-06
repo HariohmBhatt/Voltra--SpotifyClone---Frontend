@@ -8,6 +8,8 @@ import 'package:client/features/auth/viewmodel/auth_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// The `SignupPage` class extends `ConsumerStatefulWidget` and defines a stateful widget for a signup
+/// page.
 class SignupPage extends ConsumerStatefulWidget {
   const SignupPage({super.key});
 
@@ -15,12 +17,23 @@ class SignupPage extends ConsumerStatefulWidget {
   ConsumerState<SignupPage> createState() => _SignupPageState();
 }
 
+/// The `_SignupPageState` class in Dart represents the stateful widget for a sign-up page with form
+/// validation and user authentication functionality.
 class _SignupPageState extends ConsumerState<SignupPage> {
+  /// The code snippet you provided is initializing four variables:
+  /// 1. `nameController`: This is an instance of `TextEditingController` class, which is typically used
+  /// to control the text being entered into a text field. In this case, it is likely used to control
+  /// the text input for the user's name during the signup process.
+  ///    
+  /// 2. `emailController`: Similar to `nameController`, this variable is also an instance of
+  /// `TextEditingController` and is used to control the text input for the user's email address during
+  /// signup.
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
+  /// The `dispose` function is used to release resources such as controllers in Dart.
   @override
   void dispose() {
     nameController.dispose();
@@ -29,6 +42,14 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     super.dispose();
   }
 
+  /// The function builds a widget that listens to changes in the authentication view model, showing a
+  /// snackbar message when an account is successfully created and navigating to the sign-in page.
+  /// 
+  /// Args:
+  ///   context (BuildContext): The `context` parameter in Flutter represents the build context of the
+  /// widget. It is a reference to the location of a widget within the widget tree. The context provides
+  /// access to various properties and methods related to the widget, such as accessing theme data,
+  /// navigating to other screens, showing dialogs, and more
   @override
   Widget build(BuildContext context) {
     final isLoading = ref
@@ -57,7 +78,10 @@ class _SignupPageState extends ConsumerState<SignupPage> {
           loading: () {});
     });
 
-    return Scaffold(
+    /// The `Scaffold` widget in the provided code snippet is defining the structure of the
+    /// signup page UI. 
+    return
+    Scaffold(
       appBar: AppBar(),
       body: isLoading
           ? Loader()

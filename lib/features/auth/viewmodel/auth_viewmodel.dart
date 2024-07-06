@@ -6,13 +6,23 @@ import 'package:client/core/models/user_model.dart';
 import 'package:client/features/auth/repositories/auth_local_repository.dart';
 import 'package:client/features/auth/repositories/auth_remote_repository.dart';
 
+/// The `AuthViewmodel` class in Dart is a Riverpod provider class that handles authentication logic
+/// including user sign up, login, and data retrieval.
 part 'auth_viewmodel.g.dart';
 
 @riverpod
 class AuthViewmodel extends _$AuthViewmodel {
+  /// The lines `late AuthRemoteRepository _authRemoteRepository;`, `late AuthLocalRepository
+  /// _authLocalRepository;`, and `late CurrentUserNotifier _currentUserNotifier;` are declaring three
+  /// private instance variables in the `AuthViewmodel` class in Dart. The `late` keyword is used to
+  /// indicate that these variables will be initialized at a later point before they are accessed.
   late AuthRemoteRepository _authRemoteRepository;
   late AuthLocalRepository _authLocalRepository;
   late CurrentUserNotifier _currentUserNotifier;
+  /// The function initializes repositories and notifiers for user authentication in Dart.
+  /// 
+  /// Returns:
+  ///   Null is being returned from the build method.
   @override
   AsyncValue<UserModel>? build() {
     _authRemoteRepository = ref.watch(authRemoteRepositoryProvider);
@@ -21,6 +31,8 @@ class AuthViewmodel extends _$AuthViewmodel {
     return null;
   }
 
+ /// This function initializes shared preferences by first initializing the local authentication
+ /// repository asynchronously.
   Future<void> initSharedPreferences() async {
     await _authLocalRepository.init();
   }

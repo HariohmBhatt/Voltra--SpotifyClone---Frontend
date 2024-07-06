@@ -1,6 +1,8 @@
 import 'package:client/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
+/// The `AuthGradientButton` class is a Flutter widget that displays a button with a gradient background
+/// and a specified label, triggering a callback function when tapped.
 class AuthGradientButton extends StatelessWidget {
   const AuthGradientButton(
       {super.key, required this.label, required this.onTap});

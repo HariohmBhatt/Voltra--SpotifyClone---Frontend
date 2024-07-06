@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:client/features/home/model/fav_song_model.dart';
 
+/// The UserModel class represents a user with properties like name, email, id, token, and a list of
+/// favorite songs.
 class UserModel {
   final String name;
   final String email;

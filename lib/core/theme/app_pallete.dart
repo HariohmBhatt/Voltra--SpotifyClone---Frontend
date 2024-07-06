@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // this is the color pallete to be used in the app and across it. 
 
 
+/// The `Pallete` class defines static color constants for various elements in a Dart application.
 class Pallete {
   static const cardColor = Color.fromRGBO(30, 30, 30, 1);
   static const greenColor = Colors.green;
